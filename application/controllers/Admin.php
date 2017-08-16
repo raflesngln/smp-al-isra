@@ -1763,6 +1763,102 @@ function cek_login() {
 						 } 
 	
 }
+//===================UNTUK EDIT BUKUTAMU=========================
+function list_buku_tamu(){
+       	  $data=array(
+		  'title'=>'jabatan',
+		  'scrumb'=>'<a href="'.base_url().'admin/listdata_buku_tamu" class="breadcrumb">buku_tamu/a>listdata_jabatan)',
+		  'content'=>'admin/list_buku_tamu'
+		  );
+	      $this->load->view('admin/home_admin',$data); 
+	}
+function listdata_buku_tamu($search='')
+	{
+		if($search==''){
+			$kondisi='';
+		} else{
+		$kondisi=array('a.nm_pengirim LIKE'=>'%'.$search.'%');
+		}
+		//$idsession=$this->session->userdata('idusr');
+		$nm_tabel='buku_tamu a';
+		$nm_tabel2='admin b';
+		$kolom1='a.id_buku_tamu';
+		$kolom2='b.id_admin';
+		
+		$selected='a.*';
+        $nm_coloum= array('a.subjek,a.tgl_kirim','a.email_pengirim');
+        $orderby= array('a.tgl_kirim' => 'ASC');
+		$where=  $kondisi;
+        $list = $this->Model_admin->get_datatables2($selected,$nm_tabel,$nm_coloum,$orderby,$where,$nm_tabel2,$kolom1,$kolom2);
+		$data = array();
+		$no = $_POST['start'];
+		foreach ($list as $datalist){
+			$no++;
+			$row = array(
+            'no' => $no,
+			'id_buku_tamu' =>$datalist->id_buku_tamu,
+            'subjek' =>$datalist->subjek,
+			'tgl_kirim' =>$datalist->tgl_kirim,
+			'email_pengirim' =>$datalist->email_pengirim,
+			'nm_pengirim' =>$datalist->nm_pengirim,
+			'isi_buku_tamu' =>$datalist->isi_buku_tamu,
+			'action' =>'<div class="uk-button-dropdown" data-uk-dropdown>
+                                <button class="md-btn"><i class="material-icons">build</i> <i class="material-icons">&#xE313;</i></button>
+                                <div class="uk-dropdown uk-dropdown-small">
+                                    <ul class="uk-nav uk-nav-dropdown">
+                                        <li><a href="#" onclick="edit_data('.$datalist->id_buku_tamu.')"><i class="material-icons">edit</i> Edit</a></li>
+                                        <li><a href="#" onclick="hapus_data('.$datalist->id_buku_tamu.')"><i class="material-icons md-color-red-A700">refresh</i> Delete Data</a></li>
+                                    </ul>
+                                </div>
+                            </div>',
+            );
+			$data[] = $row;
+		}
+		$output = array(
+						"draw" => $_POST['draw'],
+						"recordsTotal" => $this->Model_admin->count_all2($nm_tabel,$nm_coloum,$nm_tabel2,$kolom1,$kolom2),
+						"recordsFiltered" => $this->Model_admin->count_filtered2($nm_tabel,$nm_coloum,$orderby,$where,$nm_tabel2,$kolom1,$kolom2),
+						"data" => $data,
+				);
+		//output to json format
+		echo json_encode($output);
+}
+
+
+function load_edit_buku_tamu(){
+	  $id=$this->input->post('id');
+      $result=$this->Model_admin->getCustom('*',"buku_tamu a",
+	  			"WHERE a.id_buku_tamu='$id' LIMIT 1");
+	foreach($result as $list){
+		$row = array(
+				'id_buku_tamu' =>$list->id_buku_tamu,
+				'tgl_kirim' =>$list->tgl_kirim,
+				'email_pengirim' =>$list->email_pengirim,
+				'nm_pengirim' =>$list->nm_pengirim,
+				'isi_buku_tamu' =>$list->isi_buku_tamu,
+				'subjek' =>$list->subjek
+			);
+			$data[] = $row;
+		} 
+		echo json_encode($data);
+}
+public function update_buku_tamu()
+	    {
+			$id=$this->input->post('id_buku_tamu2');
+			
+			$ubah = array(
+			'subjek'=>$this->input->post('subjek'),
+			'isi_buku_tamu'=>$this->input->post('isi_buku_tamu'),
+			'status'=>$this->input->post('status'),
+			);
+		$update = $this->Model_admin->update('buku_tamu','id_buku_tamu',$id,$ubah);
+		echo json_encode(array("status" => TRUE));
+	 }
+public function hapus_buku_tamu(){   
+		$id=$this->input->post('id');
+			$deletedata=$this->Model_admin->delete_data('buku_tamu','id_buku_tamu',$id);
+		    echo json_encode(array("status" => TRUE));
+}
 
 
   function logout() {

@@ -63,9 +63,7 @@ function simpan_daftar(){
 	
 
 function my_profile(){
-	$id=$this->session->userdata('id_calon_sesi');
-	$id_calon_sesi=$this->session->userdata('id_calon_sesi');
-					 
+	$id=$this->session->userdata('id_calon_sesi');	 
 	if($this->session->userdata('sesi_calon_login') !=TRUE){
 		redirect('psb');
 	} else{
@@ -75,6 +73,8 @@ function my_profile(){
 	   'navigasi'=>' Profil Ku',
 	   'my_profile'=>$this->Model_admin->getCustom('*',"calon_siswa",
 	   				 "where id_calon='$id'"),
+	   'detail_isi'=>$this->Model_admin->getCustom('a.*',"pendaftaran a",
+	   				 "INNER JOIN calon_siswa b ON a.id_calon=b.id_calon where a.id_calon='$id'"),
 	   'notif'=>$this->session->flashdata('notif')
 	   );
        $this->load->view('template/home',$data);
@@ -114,23 +114,6 @@ public function update_my_profile(){
 	
 	$this->session->set_flashdata('notif',$message);		
 	redirect('Psb/my_profile');
-}
-function form_daftar_siswa(){
-	$id_calon_sesi=$this->session->userdata('id_calon_sesi');
-	if($this->session->userdata('sesi_calon_login') !=TRUE){
-		redirect('psb');
-	} else{
-	   $data=array(
-	   'content'=>'calon/my_profile',
-	   'content_profile'=>'calon/form_pendaftaran',
-	   'navigasi'=>' Form Pendaftaran',
-	   'detail_isi'=>$this->Model_admin->getCustom('a.*',"pendaftaran a",
-	   				 "INNER JOIN calon_siswa b ON a.id_calon=b.id_calon where a.id_calon='$id_calon_sesi'"),
-	   'list'=>''
-	   );
-       $this->load->view('template/home',$data);
-    }
-
 }
 
 public function submit_pendaftaran(){
@@ -312,6 +295,36 @@ function update_form_daftarrrrrrr(){
   }
  }
 
+function cetak_pendaftaran(){
+	
+		$thn=date('Y-m-d');
+		$kurangi=$thn-1;
+		$nomor_daftar=$this->uri->segment(3);
+			
+	$data = array(
+			'judul'=>"Cetak Form Pendaftaran",
+			'status'=>"Tahun Ajaran ".$kurangi.' / ' .$thn. ' Status ',
+			'list'=>$this->Model_admin->getCustom('*',"pendaftaran",
+	  			"WHERE nomor_daftar='$nomor_daftar' limit 1")
+        );  
+		
+        ob_start();
+        $content = $this->load->view('calon/cetak_pendaftaran',$data);
+        $content = ob_get_clean();      
+        $this->load->library('html2pdf');
+        try
+        {
+            $html2pdf = new HTML2PDF('P', 'A4', 'fr');
+            $html2pdf->pdf->SetDisplayMode('fullpage');
+            $html2pdf->writeHTML($content, isset($_GET['vuehtml']));
+            $html2pdf->Output('house_report.pdf');
+        }
+        catch(HTML2PDF_exception $e) {
+            echo $e;
+            exit;
+        }
+
+}
 
 ////////login n logout////////////////
 function cek_login_user() {

@@ -1,39 +1,47 @@
-<style>
-.dropdown-content{
-	top:30px !important;
+ <style>
+h1{
+	font-size:26pt !important;
 }
-#box-form{
-    border: 1px #e0e0e0 solid;
-    padding: 6px 6px 30px 6px;
-    border-radius: 4px;
+#form-box label{
+	font-size:12px;
 }
-.status{
-    background: #eee !important;
-    margin-top: 5px !important;
-    padding-left: 9px !important;
-    color: #1267d4 !important;
+.input {
+    border: 1px #dadada solid !important;
+    padding: 4px 4px 4px 8px !important;
+    background-color: #ffffff !important;
+    color: #202020;
 }
-.label{
-	color:#f44336 !important
-}
-.badge{
-	padding:7px;
-	width:35%;
-	margin:0px auto;
-	background:#b1dcfb !important;
-}
-</style>
 
+#form-box {
+	margin-top:0px;
+    border: 1px #f5f5f5 solid;
+    padding-bottom: 70px;
+    box-shadow: 1px 5px 13px #ddd;
+    padding: 20px ;
+}
+select {
+     display:block; 
+	     background-color: rgba(255,255,255,0.9);
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #f2f2f2;
+    border-radius: 2px;
+    height: 4rem;
+}
+.fa-4x{
+	height:40px;
+	width:40px;
+}
+ </style> 
 
-    <div class="row" id="box-form">
-<h4><b><i class="fa fa-file-text-o"></i> FORM PENDAFTARAN SISWA BARU</b></h4>
- <p><?php echo isset($notif)?'<h6 class="badge" align="center"><i class="fa fa-info"></i> '.$notif.'</h6>':'';?></p>
-<br />
+<div class="row" >
 
-      <!--   Icon Section   -->
+           
+
+      <div class="row">
       
- <form class="col s12" method="post" action="<?php echo base_url();?>Psb/submit_pendaftaran" enctype="multipart/form-data">
-  <?php
+ <form class="col s12" method="post" action="<?php echo base_url();?>Psb/submit_pendaftaran" id="form-box"  enctype="multipart/form-data">
+ <?php
  if($detail_isi !==''){
 	 foreach($detail_isi as $row){
 		 
@@ -75,68 +83,79 @@
 	 }
  }
  ?>
-
-<?php 
+  
+    
+ <?php 
  if(isset($nomor))
  {
-?>
- <div class="row">    
-        <div class="input-field col s4">
-          <input name="nomor_daftar" type="text" class="status" id="first_name" placeholder="di generate oleh system" readonly="readonly" value="<?php echo isset($nomor)?$nomor:'';?>">
-          <label for="status_proses" class="label">Nomor Daftar Anda</label>
-      </div>
+?>   
+<div class="row">
+<a href="<?php echo base_url();?>Psb/cetak_pendaftaran/<?php echo isset($nomor)?$nomor:'';?>"  style="float:right" type="button" class="waves-effect waves-light btn orange" target="new"> <i class="fa fa-print fa-2x"></i> Print</a>
+</div>
 
-
-<div class="input-field col s4">
-          <input name="status_proses" type="text" class="status" id="first_name" readonly="readonly" value="<?php echo isset($status_proses)?$status_proses:'';?>">
-          <label for="status_proses" class="label">Status Pendaftaran Anda</label>
-      </div>
- 
-
-       
-    </div>
- <?php } ?>        
-      
-    <div class="row">
-      <h6><i class="fa fa-user fa-2x"></i>&nbsp; <b><u> A.	KETERANGAN CALON PESERTA DIDIK</u></b></h6>
-        <div class="input-field col s6">
-          <input name="nm_lengkap" type="text" class="validate" id="first_name" placeholder="&nbsp;" value="<?php echo isset($nama_lengkap)?$nama_lengkap:'';?>" required="required">
-          <label for="first_name">Nama lengkap</label>
+<div class="row">
+        <div class="col s6">
+        <label for="email">Nomor Daftar Anda</label>
+          <input name="nama" value="<?php echo isset($nomor)?$nomor:'';?>" type="text" class=" input" id="password" readonly="readonly">
+          
         </div>
-        <div class="input-field col s6">
-                    <select name="jenis_kelamin" id="jenis_kelamin" required="required">
+<div class="col s6">
+        <label for="email">Status Pendaftaran Anda</label>
+          <input name="nama" value="<?php echo isset($status_proses)?$status_proses:'';?>" type="text" class=" input" id="password" readonly="readonly">
+          
+        </div>
+      </div>
+  <?php } ?>       
+      
+      
+  <h6><i class="fa fa-user fa-2x"></i>&nbsp; <b><u> A.	KETERANGAN CALON PESERTA DIDIK</u></b></h6>
+      <div class="row">
+        <div class="col s6">
+        <label for="email">Nama Lengkap</label>
+          <input name="nm_lengkap" type="text" class="input" id="first_name" placeholder="&nbsp;" value="<?php echo isset($nama_lengkap)?$nama_lengkap:'';?>" required="required">
+          
+        </div>
+<div class="col s6">
+        <label for="email">Jenis Kelamin</label>
+       <select name="jenis_kelamin" id="jenis_kelamin" required="required">
                       <option value="<?php echo isset($jenis_kelamin)?$jenis_kelamin:'';?>"><?php echo isset($jenis_kelamin)?$jenis_kelamin:'';?></option>>
                       <option value="Pria">Pria</option>
                       <option value="Wanita">Wanita</option>
                     </select>
-                    <label>Jenis kelamin</label>
-              
+          
         </div>
       </div>
-      
+ 
  <div class="row">
-        <div class="input-field col s4">
-          <input name="berat" type="text" class="validate" id="first_name" placeholder="kg" value="<?php echo isset($berat)?$berat:'';?>" required="required">
-          <label for="first_name">Berat Badan</label>
+        <div class="col s4">
+         <label for="first_name">Berat Badan</label>
+         <input name="berat" type="text" class="input" id="first_name" placeholder="kg" value="<?php echo isset($berat)?$berat:'';?>" required="required">
+         
         </div>
-        
-<div class="input-field col s4">
-          <input name="tinggi" type="text" class="validate" id="first_name" placeholder="cm" value="<?php echo isset($tinggi)?$tinggi:'';?>" required="required">
-          <label for="first_name">Tinggi Badan Badan</label>
+<div class="col s4">
+ <label for="first_name">Tinggi Badan Badan</label>
+       <input name="tinggi" type="text" class="input" id="first_name" placeholder="cm" value="<?php echo isset($tinggi)?$tinggi:'';?>" required="required">
+         
+          
         </div>
-<div class="input-field col s4">
-          <input name="golongan_darah" type="text" class="validate" id="first_name" placeholder="&nbsp;" value="<?php echo isset($golongan_darah)?$golongan_darah:'';?>" required="required">
-          <label for="first_name">Golongan Darah</label>
+<div class="col s4">
+<label for="first_name">Golongan Darah</label>
+         <input name="golongan_darah" type="text" class="input" id="first_name" placeholder="&nbsp;" value="<?php echo isset($golongan_darah)?$golongan_darah:'';?>" required="required">
+          
+          
         </div>
-    </div>    
-<div class="row">
-        <div class="input-field col s6">
-          <input name="nik" type="text" class="validate" id="first_name" placeholder="&nbsp;" value="<?php echo isset($nik)?$nik:'';?>" required="required">
-          <label for="first_name">NIK (Nomor Induk Kependidikan)</label>
       </div>
-        
-<div class="input-field col s6">
-                    <select name="agama" id="agama" required="required">
+
+<div class="row">
+        <div class="col s6">
+        <label for="first_name">NIK (Nomor Induk Kependidikan)</label>
+        <input name="nik" type="text" class="input" id="first_name" placeholder="&nbsp;" value="<?php echo isset($nik)?$nik:'';?>" required="required">
+          
+          
+        </div>
+<div class="col s6">
+ <label>Agama</label>
+        <select name="agama" id="agama" required="required">
 <option value="<?php echo isset($agama)?$agama:'';?>"><?php echo isset($agama)?$agama:'Pilih';?></option>
                       <option value="islam">islam</option>
                       <option value="protestan">protestan</option>
@@ -144,20 +163,20 @@
                       <option value="budha">budha</option>
                       <option value="hindu">hindu</option>
                     </select>
-                    <label>Agama</label>
-              
-      </div>
-    </div>
-      
- 
- <div class="row">
-     
-      <div class="input-field col s6">
-          <input name="tempat_lahir" type="text" class="validate" id="first_name" placeholder="&nbsp;" value="<?php echo isset($tempat_lahir)?$tempat_lahir:'';?>" required="required">
-          <label for="first_name">Tempat Lahir</label>
+                   
         </div>
-      <div class="input-field col s2">
-                    <select name="tgl_calon" id="tgl_calon" required="required">
+      </div>
+      
+<div class="row">
+        <div class="col s3">
+         <label for="first_name">Tempat Lahir</label>
+          <input name="tempat_lahir" type="text" class="input" id="first_name" placeholder="&nbsp;" value="<?php echo isset($tempat_lahir)?$tempat_lahir:'';?>" required="required">
+         
+          
+        </div>
+<div class="col s3">
+ <label>TGL</label>
+        <select name="tgl_calon" id="tgl_calon" required="required">
 <option value="<?php echo isset($tgl_lahir)?substr($tgl_lahir,8,2):'';?>"><?php echo isset($tgl_lahir)?substr($tgl_lahir,8,2):'Pilih';?></option>
                         <?php
 				   for($i=1;$i<=31;$i++){
@@ -168,11 +187,12 @@
                      <option value="<?=$i;?>"><?=$i;?></option>
                       <?php } ?>
                     </select>
-                    <label>TGL</label>
-              
+                   
+          
         </div>
-<div class="input-field col s2">
-                    <select name="bln_calon" id="bln_calon" required="required">
+<div class="col s3">
+<label>BLN</label>
+         <select name="bln_calon" id="bln_calon" required="required">
 <option value="<?php echo isset($tgl_lahir)?substr($tgl_lahir,5,2):'';?>"><?php echo isset($tgl_lahir)?substr($tgl_lahir,5,2):'Pilih';?></option>
                         <?php
 				   for($i=1;$i<=12;$i++){
@@ -183,11 +203,11 @@
                      <option value="<?=$i;?>"><?=$i;?></option>
                       <?php } ?>
                     </select>
-                    <label>BLN</label>
-              
+                    
         </div>
-<div class="input-field col s2">
-                    <select name="thn_calon" id="thn_calon" required="required">
+<div class="col s3">
+<label>THN</label>
+           <select name="thn_calon" id="thn_calon" required="required">
 <option value="<?php echo isset($tgl_lahir)?substr($tgl_lahir,0,4):'';?>"><?php echo isset($tgl_lahir)?substr($tgl_lahir,0,4):'Pilih';?></option>
                         <?php
 				   for($i=2000;$i<=2050;$i++){
@@ -195,59 +215,61 @@
                      <option value="<?=$i;?>"><?=$i;?></option>
                       <?php } ?>
                     </select>
-                    <label>THN</label>
-              
+                    
         </div>
-    </div>     
-      
- <div class="row">
-<div class="input-field col s6">
-          <input name="anak_ke" type="text" class="validate" id="first_name" placeholder="&nbsp;" value="<?php echo isset($anak_ke)?$anak_ke:'';?>" required="required">
-          <label for="first_name">Anak Ke -</label>
-        
       </div>
-<div class="input-field col s6">
-          <input name="jumlah_bersaudara" type="text" class="validate" id="first_name" placeholder="&nbsp;" value="<?php echo isset($jumlah_bersaudara)?$jumlah_bersaudara:'';?>" required="required">
-          <label for="first_name">Jumlah bersaudara</label>
-        
-      </div>
-    </div>    
 
 <div class="row">
-        
-        
-<div class="input-field col s6">
-          <input name="tempat_tinggal" type="text" class="validate" id="first_name" placeholder="&nbsp;" value="<?php echo isset($tempat_tinggal)?$tempat_tinggal:'';?>" required="required">
-          <label for="first_name">Alamat Tempat Tinggal</label>
-        
+        <div class="col s6">
+        <label for="first_name">Anak Ke -</label>
+         <input name="anak_ke" type="text" class="input" id="first_name" placeholder="&nbsp;" value="<?php echo isset($anak_ke)?$anak_ke:'';?>" required="required">
+          
+          
         </div>
-<div class="input-field col s6">
-          <input name="asal_sekolah" type="text" class="validate" id="first_name" placeholder="&nbsp;" value="<?php echo isset($asal_sekolah)?$asal_sekolah:'';?>" required="required">
-          <label for="first_name">Nama Asal Sekolah</label>
-        
+<div class="col s6">
+<label for="first_name">Jumlah bersaudara</label>
+        <input name="jumlah_bersaudara" type="text" class="input" id="first_name" placeholder="&nbsp;" value="<?php echo isset($jumlah_bersaudara)?$jumlah_bersaudara:'';?>" required="required">
+          
+          
         </div>
       </div>
 
-
-<!--orang tua field-->
-      <div class="row">
-      <h6><i class="fa fa-users fa-2x"></i>&nbsp; <b><u> B.	KETERANGAN ORANG TUA</u></b></h6>
-      <p>a.	Nama</p>
-        <div class="input-field col s6">
-          <input name="nama_ayah" type="text" class="validate" id="first_name" placeholder="&nbsp;" value="<?php echo isset($nama_ayah)?$nama_ayah:'';?>" required="required">
-          <label for="first_name">Ayah</label>
-        </div>
-        <div class="input-field col s6">
-          <input name="nama_ibu" type="text" class="validate" id="first_name" placeholder="&nbsp;" value="<?php echo isset($nama_ibu)?$nama_ibu:'';?>" required="required">
-          <label for="first_name">Ibu</label>
-        </div>
-      </div>
-      
-      
 <div class="row">
-		<p>b.	Tahun Lahir</p>
-        <div class="input-field col s6">
-   <select name="tgl_lahir_ayah" id="nama_ayah">
+        <div class="col s6">
+        <label for="first_name">Alamat Tempat Tinggal</label>
+          <input name="tempat_tinggal" type="text" class="input" id="first_name" placeholder="&nbsp;" value="<?php echo isset($tempat_tinggal)?$tempat_tinggal:'';?>" required="required">
+          
+          
+        </div>
+<div class="col s6">
+ <label for="first_name">Nama Asal Sekolah</label>
+        <input name="asal_sekolah" type="text" class="input" id="first_name" placeholder="&nbsp;" value="<?php echo isset($asal_sekolah)?$asal_sekolah:'';?>" required="required">
+         
+          
+        </div>
+      </div>
+      
+  <h6><i class="fa fa-users fa-2x"></i>&nbsp; <b><u> B.	KETERANGAN ORANG TUA</u></b></h6>
+<div class="row">
+	<p>a.	Nama</p>
+        <div class="col s6">
+        <label for="first_name">Ayah</label>
+        <input name="nama_ayah" type="text" class="input" id="first_name" placeholder="&nbsp;" value="<?php echo isset($nama_ayah)?$nama_ayah:'';?>" required="required">
+          
+          
+        </div>
+<div class="col s6">
+ <label for="first_name">Ibu</label>
+        <input name="nama_ibu" type="text" class="input" id="first_name" placeholder="&nbsp;" value="<?php echo isset($nama_ibu)?$nama_ibu:'';?>" required="required">
+         
+          
+        </div>
+      </div>
+<p>b.	Tahun Lahir</p>
+<div class="row">
+        <div class="col s6">
+        <label>Ayah</label>
+        <select name="tgl_lahir_ayah" id="nama_ayah">
    <option value="<?php echo isset($tgl_lahir_ayah)?$tgl_lahir_ayah:'';?>"><?php echo isset($tgl_lahir_ayah)?$tgl_lahir_ayah:'Pilih';?></option>
                         <?php
 				   for($i=1945;$i<=2010;$i++){
@@ -255,11 +277,12 @@
                      <option value="<?=$i;?>"><?=$i;?></option>
                       <?php } ?>
           </select>
-          <label>Ayah</label>
-      </div>
-        
-<div class="input-field col s6">
-   <select name="tgl_lahir_ibu" id="thn_ibu">
+          
+          
+        </div>
+<div class="col s6">
+<label>Ibu</label>
+       <select name="tgl_lahir_ibu" id="thn_ibu">
    <option value="<?php echo isset($tgl_lahir_ibu)?$tgl_lahir_ibu:'';?>"><?php echo isset($tgl_lahir_ibu)?$tgl_lahir_ibu:'Pilih';?></option>
                         <?php
 				   for($i=1945;$i<=2010;$i++){
@@ -267,119 +290,124 @@
                      <option value="<?=$i;?>"><?=$i;?></option>
                       <?php } ?>
         </select>
-                    <label>Ibu</label>
-              
+                    
+          
+        </div>
       </div>
-    </div>
+      <p>c.	Pendidikan Terakhir</p>
+<div class="row">
+        <div class="col s6">
+         <label for="first_name">Ayah</label>
+         <input name="pendidikan_ayah" type="text" class="input" id="first_name" placeholder="&nbsp;" value="<?php echo isset($pendidikan_ayah)?$pendidikan_ayah:'';?>">
+         
+          
+        </div>
+<div class="col s6">
+<label for="first_name">Ibu</label>
+        <input name="pendidikan_ibu" type="text" class="input" id="first_name" placeholder="&nbsp;" value="<?php echo isset($pendidikan_ibu)?$pendidikan_ibu:'';?>">
+        
+          
+        </div>
+      </div>
+<p>d.	Pekerjaan</p>
+<div class="row">
+        <div class="col s6">
+        <label for="first_name">Ayah</label>
+        <input name="pekerjaan_ayah" type="text" class="input" id="first_name" placeholder="&nbsp;" value="<?php echo isset($pekerjaan_ayah)?$pekerjaan_ayah:'';?>">
+          
+          
+        </div>
+<div class="col s6">
+ <label for="first_name">Ibu</label>
+      <input name="pekerjaan_ibu" type="text" class="input" id="first_name" placeholder="&nbsp;" value="<?php echo isset($pekerjaan_ibu)?$pekerjaan_ibu:'';?>">
+         
+          
+        </div>
+      </div>
+      <p>e.	Penghasilan Perbulan</p>
+<div class="row">
+        <div class="col s6">
+        <label for="first_name">Ayah</label>
+       <input name="penghasilan_ayah" type="text" class="input" id="first_name" placeholder="&nbsp;" value="<?php echo isset($penghasilan_ayah)?$penghasilan_ayah:'';?>">
+          
+          
+        </div>
+<div class="col s6">
+ <label for="first_name">Ibu</label>
+        <input name="penghasilan_ibu" type="text" class="input" id="first_name" placeholder="&nbsp;" value="<?php echo isset($penghasilan_ibu)?$penghasilan_ibu:'';?>">
+         
+          
+        </div>
+      </div>
+       <p>f.	Tempat Tinggal</p>   
+<div class="row">
+        <div class="col s6">
+        <label for="textarea1">Ayah </label>
+        <textarea name="alamat_ayah" class="materialize-textarea" id="textarea1" placeholder="&nbsp;" required="required"><?php echo isset($alamat_ayah)?$alamat_ayah:'';?></textarea>
+          
+          
+        </div>
+<div class="col s6">
+<label for="textarea1">Ibu</label>
+       <textarea name="alamat_ibu" class="materialize-textarea" id="textarea1" placeholder="&nbsp;" required="required"><?php echo isset($alamat_ibu)?$alamat_ibu:'';?></textarea>
+          
+          
+        </div>
+      </div>
 
+ <h6><i class="fa fa-file-archive-o fa-2x"></i> &nbsp; <b><u> C.	LAMPIRAN-LAMPIRAN</u></b></h6>
+ <p>a.	Pass Photo 3x4</p>
 <div class="row">
-		<p>c.	Pendidikan Terakhir</p>
-        <div class="input-field col s6">
-          <input name="pendidikan_ayah" type="text" class="validate" id="first_name" placeholder="&nbsp;" value="<?php echo isset($pendidikan_ayah)?$pendidikan_ayah:'';?>">
-          <label for="first_name">Ayah</label>
-      </div>
-        
-<div class="input-field col s6">
-          <input name="pendidikan_ibu" type="text" class="validate" id="first_name" placeholder="&nbsp;" value="<?php echo isset($pendidikan_ibu)?$pendidikan_ibu:'';?>">
-        <label for="first_name">Ibu</label>
-              
-      </div>
-    </div>      
- 
- <div class="row">
-		<p>d.	Pekerjaan</p>
-        <div class="input-field col s6">
-          <input name="pekerjaan_ayah" type="text" class="validate" id="first_name" placeholder="&nbsp;" value="<?php echo isset($pekerjaan_ayah)?$pekerjaan_ayah:'';?>">
-          <label for="first_name">Ayah</label>
-      </div>
-        
-<div class="input-field col s6">
-          <input name="pekerjaan_ibu" type="text" class="validate" id="first_name" placeholder="&nbsp;" value="<?php echo isset($pekerjaan_ibu)?$pekerjaan_ibu:'';?>">
-          <label for="first_name">Ibu</label>
-              
-      </div>
-    </div>
-    
-    
-<div class="row">
-		<p>e.	Penghasilan Perbulan</p>
-        <div class="input-field col s6">
-          <input name="penghasilan_ayah" type="text" class="validate" id="first_name" placeholder="&nbsp;" value="<?php echo isset($penghasilan_ayah)?$penghasilan_ayah:'';?>">
-          <label for="first_name">Ayah</label>
-      </div>
-        
-<div class="input-field col s6">
-          <input name="penghasilan_ibu" type="text" class="validate" id="first_name" placeholder="&nbsp;" value="<?php echo isset($penghasilan_ibu)?$penghasilan_ibu:'';?>">
-          <label for="first_name">Ibu</label>
-              
-      </div>
-    </div>     
-      
-      
-
-<div class="row">
-     <p>f.	Tempat Tinggal</p>   
-        <div class="input-field col s6">
-          <textarea name="alamat_ayah" class="materialize-textarea" id="textarea1" placeholder="&nbsp;" required="required"><?php echo isset($alamat_ayah)?$alamat_ayah:'';?></textarea>
-          <label for="textarea1">Ayah </label>
-        
-      </div>
-<div class="input-field col s6">
-        <textarea name="alamat_ibu" class="materialize-textarea" id="textarea1" placeholder="&nbsp;" required="required"><?php echo isset($alamat_ibu)?$alamat_ibu:'';?></textarea>
-          <label for="textarea1">Ibu</label>
-        
-      </div>
-    </div>
- 
-<!--orang tua field-->
-      <div class="row">
-      <h6><i class="fa fa-file-archive-o fa-2x"></i> &nbsp; <b><u> C.	LAMPIRAN-LAMPIRAN</u></b></h6>
-      <p>a.	Pass Photo 3x4</p>
-        <div class="input-field col s6">
-        
-          <input name="picture" type="file" id="picture" />
-          <span class="uk-width-medium-1-3">
+        <div class="col s6">
+       <input name="picture" type="file" id="picture" />
+         
           <input type="hidden" name="oldPict" id="oldPict" value="<?php echo isset($pass_photo)?$pass_photo:'';?>" />
-        </span></div>
         
-        <div class="input-field col s6">
-    <img src="<?php echo base_url();?>assets/images/calon/<?php echo isset($nomor)?$nomor.'/':'';?><?php echo isset($pass_photo)?$pass_photo:'noimage.png';?>" name="view_gbr" width="120px" height="150px" class="view_gbr"  id="view_gbr" data-uk-modal="{target:'#modal_lightbox',modal:false}"  />
+          
+        </div>
+<div class="col s6">
+     <img src="<?php echo base_url();?>assets/images/calon/<?php echo isset($nomor)?$nomor.'/':'';?><?php echo isset($pass_photo)?$pass_photo:'noimage.png';?>" name="view_gbr" width="120px" height="150px" class="view_gbr"  id="view_gbr" data-uk-modal="{target:'#modal_lightbox',modal:false}"  />
 	<span>    <i class="material-icons md-24" id="delbutton" title="remove picture">close</i></span>
+          
         </div>
-      </div>
-      
-      
+      </div> 
+ 
+ <p>b.	Lampiran</p>     
 <div class="row">
-
- <p>b.	Lampiran</p>
-        <div class="input-field col s4">
-        <p for="picture">Upload Ijasah</p>
+        <div class="col s4">
+        <label for="email">Upload Ijasah</label>
           <input name="ijasah" type="file" />
+          
         </div>
-<div class="input-field col s4">
-        <p for="picture">Upload Kartu Keluarga</p>
+<div class="col s4">
+        <label for="email">Upload Kartu Keluarga</label>
           <input name="kk" type="file" id="kk" />
+          
         </div>
-      <div class="input-field col s4">
-        <p for="picture">Upload Transkrip Nilai</p>
+<div class="col s4">
+        <label for="email">Nama LengkapUpload Transkrip Nilai</label>
           <input name="nilai" type="file" id="nilai" />
           
         </div>
-    </div>  
-
-
-<div class="uk-grid" style="margin-bottom:40px">&nbsp;</div>           
-    <button type="submit" class="waves-effect light-blue darken-3 waves-light btn-large btn">
-      <i class="fa fa-save"></i> Submit Pendaftaran
-      </button>
+      </div>
+<!--=============================================-->      
+    
+    
+    <br />        
+  <button type="submit" class="waves-effect waves-light btn"> <i class="fa fa-save"></i> Submit Pendaftaran</button>
+      <br />
       
+       
       
     </form>
-      
+      </div>
 
-    </div>
     
-    <script>
+  </div>   
+  
+  
+  
+     <script>
 $(document).ready(function(e) {
     $('select').material_select();        
 	});

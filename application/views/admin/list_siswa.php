@@ -92,18 +92,20 @@ function reload_tabel()
 
                     
      </select>
-  </div>                      
- <div class="uk-width-medium-2-10" >
-         <button   onclick="cetak_siswa()" class="md-btn md-btn-success md-btn-wave-light uk-float-right">
-     <i class="material-icons md-color-brown-50 ">print</i>
-      <span>Cetak</span>                                        
-    </button>&nbsp;..
-    
-    <span><button   onclick="sort_siswa()" class="md-btn md-btn-success md-btn-wave-light uk-float-right">
-     <i class="material-icons md-color-brown-50 ">search</i>
-      <span>Sort</span>                                        
-    </button> </span>&nbsp;..
-          </div>  
+  </div>  
+  
+  <div class="uk-width-medium-2-10" >
+ 
+ 
+ <div class="md-btn-group">
+                                <a href="javascript:void(0)" class="md-btn md-btn-wave waves-effect waves-button md-btn-success"  onclick="sort_siswa()" ><i class="material-icons md-color-brown-50 ">search</i>Sort</a>
+                                <a href="javascript:void(0)" class="md-btn md-btn-wave waves-effect waves-button md-btn-success"  onclick="cetak_siswa()"><i class="material-icons md-color-brown-50 ">print</i>Print</a>
+                                
+                            </div>
+                            
+         
+          </div>                    
+   
 <div class="uk-width-medium-6-10">&nbsp;</div>       
                         
  </div>

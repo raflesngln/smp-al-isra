@@ -1,43 +1,33 @@
-<style>
-.card-title{
-	color:#666;
-}
-.calon-menu{
-	margin-bottom:10px;
-}
-.calon-menu li{
-	margin-bottom:10px;
-}
-</style>
-<style>
-#profil-side{
-	border:1px #e0e0e0 solid;
-	padding:30px 0px 200px 6px;	
-}
-</style>
+<div class="row">
+                <div class="col-md-12">
 
+                    <div class="border-bottom-tab">
 
-    <div class="container">
+                      <!-- Nav tabs -->
+                      <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#tab-1" role="tab" class="waves-effect waves-dark" data-toggle="tab"><i class="fa fa-user"></i> My Profile</a></li>
+                        
+                        <li role="presentation"><a href="#tab-2" role="tab" class="waves-effect waves-dark" data-toggle="tab"><i class="fa fa-file"></i> Pendaftaran</a></li>
+                        
+                       
+                      </ul>
 
-      <!--   Icon Section   -->
-      <div class="row">
-    <div class="col s12 m2 l2" id="profil-side">
-              
-              <h5>Halaman ku</h5>
-              <ul class="calon-menu">
-              <li><a href="<?php echo base_url();?>Psb/my_profile">Profil Ku</a></li>
-              <li><a href="<?php echo base_url();?>Psb/form_daftar_siswa">Form Pendaftaran</a></li>
-              </ul>
-            
-    </div>
-    
-    <div class="col s12 m9 l9" style="margin-left:10px">
-              <?php echo $this->load->view($content_profile);?>
-    </div>
-    
-    
-    </div>
-    
-    </div>
-    
+                      <!-- Tab panes -->
+    <div class="panel-body">
+     <div class="tab-content">
+     
+      <div role="tabpanel" class="tab-pane fade in active" id="tab-1">
+       <?php echo $this->load->view('calon/form_pendaftaran');?>
+	  </div>
+                          
+         <div role="tabpanel" class="tab-pane fade" id="tab-2">
+           <?php echo $this->load->view('calon/form_pendaftaran');?>          </div>
+                          
+                          
+                        </div>
+                      </div>
 
+                    </div><!-- /.border-bottom-tab -->
+
+                </div><!-- /.col-md-12 -->
+              </div>

@@ -118,7 +118,9 @@
                             <li>
                             <a href="<?php echo base_url();?>Home/pengajar">Staff Guru</a>
                             </li>
-                            
+                            <li>
+                            <a href="<?php echo base_url();?>Home/input_buku_tamu">Buku Tamu </a>
+                            </li>                            
        <?php 
 	  if($this->session->userdata('sesi_calon_login') !=TRUE){ ?>    
                             <li>
@@ -178,8 +180,8 @@
                     <div class="col-md-12">
                         
                         <ol class="breadcrumb">
-                            <li><a href="#">Home</a></li>
-                            <li class="active">Profil</li>
+                            <li><a href="<?php echo base_url();?>">Home</a></li>
+                            <li class="active"><?php echo isset($navigasi)?$navigasi:'' ;?></li>
                         </ol>
                     </div>
                 </div>
@@ -190,11 +192,14 @@
 
 
         <!-- blog section start -->
-        <?php echo $this->load->view('template/body');?>
+        <?php echo $this->load->view('template/content');?>
         <!-- blog section end -->
 
 
-
+        <!-- blog section start -->
+        <?php echo $this->load->view('content/testimoni');?>
+        <!-- blog section end -->
+        
         <footer class="footer footer-four">
             <div class="primary-footer brand-bg text-center">
                 <div class="container">
@@ -240,7 +245,7 @@
         <script src="<?php echo base_url();?>assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="<?php echo base_url();?>assets/materialize/js/materialize.min.js"></script>
         <script src="<?php echo base_url();?>assets/js/menuzord.js"></script>
-    <!--    <script src="assets/js/bootstrap-tabcollapse.min.js"></script>
+    <!--   --> <script src="assets/js/bootstrap-tabcollapse.min.js"></script>
         <script src="assets/js/jquery.easing.min.js"></script>
         <script src="assets/js/imagesloaded.js"></script>
         <script src="assets/js/instafeed.min.js"></script>
@@ -251,7 +256,7 @@
         <script src="assets/js/jquery.shuffle.min.js"></script>
         <script src="assets/owl.carousel/owl.carousel.min.js"></script>
         <script src="assets/flexSlider/jquery.flexslider-min.js"></script>
-        -->
+        
         <script src="<?php echo base_url();?>assets/js/scripts.js"></script>
         <!-- add this script to show twitter feed in sidebar -->
         <script>

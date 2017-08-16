@@ -117,40 +117,36 @@
                 </li>
                  <li title="Chats">
                     <a href="#">
-                        <span class="menu_icon"><i class="material-icons">&#xE0B9;</i></span>
+                        <span class="menu_icon"><i class="material-icons">assignment</i></span>
                         <span class="menu_title">PSB</span>
                     </a>
                     <ul>
-                        <li><a href="page_chat.html">Pendaftar</a></li>
-                        <li><a href="page_chat_small.html">Laporan Pendaftaran</a></li>
-                        <li><a href="page_chat_small.html">Laporan Diterima</a></li>
-                        <li><a href="page_chat_small.html">Siswa</a></li>
+                        <li><a href="<?php echo base_url();?>Admin/list_pendaftar">Pendaftar</a></li>
+                        <li><a href="<?php echo base_url();?>Admin/formulir_pendaftaran">Submit Formulir Daftar</a></li>
+              <li><a href="<?php echo base_url();?>Admin/list_verifikasi">Verifikasi Siswa Baru</a></li>
                     </ul>
                 </li>
                          <li title="Scrum Board">
-                    <a href="page_scrum_board.html">
+                    <a href="<?php echo base_url();?>Admin/list_profil">
                         <span class="menu_icon"><i class="material-icons">&#xE85C;</i></span>
                         <span class="menu_title">Profil_sekolah</span>
                 </a></li>
                <li title="Scrum Board">
-                    <a href="page_scrum_board.html">
+                    <a href="<?php echo base_url();?>Admin/list_slide">
                         <span class="menu_icon"><i class="material-icons">touch_app</i></span>
                         <span class="menu_title">Slider</span>
                 </a></li>  
                <li title="Scrum Board">
-                    <a href="page_scrum_board.html">
+                 <a href="<?php echo base_url();?>Admin/list_gallery">
                         <span class="menu_icon"><i class="material-icons">perm_media</i></span>
                         <span class="menu_title">gallery</span>
                 </a></li>  
                <li title="Scrum Board">
-                    <a href="page_scrum_board.html">
+                 <a href="<?php echo base_url();?>Admin/list_berita">
                         <span class="menu_icon"><i class="material-icons">language</i></span>
                         <span class="menu_title">posting News</span>
                 </a></li>  
-               <li title="Scrum Board">
-                    <a href="page_scrum_board.html">
-                        <span class="menu_icon"><i class="material-icons">&#xE85C;</i></span>
-                <span class="menu_title">Slide</span></a></li>    
+           
                
           </ul>
       </div>

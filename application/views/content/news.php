@@ -25,7 +25,7 @@
           <p><?php echo substr($row->isi_berita,0,100).'...';?></p>
         </div>
         <div class="card-action">
-          <a href="<?php echo base_url();?>Home/detail_news/<?php echo $row->id_berita;?>">Selengkapnya &raquo;</a>
+          <a href="<?php echo base_url();?>Home/detail_news/<?php echo $row->id_berita;?>" class="waves-effect waves-orange btn-flat orange-text">More &raquo;</a>
         </div>
       </div>
     </div>

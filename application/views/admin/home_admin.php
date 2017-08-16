@@ -10,8 +10,7 @@
      <link rel="shortcut icon" href="<?php echo base_url();?>assets/images/favicon.ico">
 
 
-
-    <title>SMP-BINA-UTAMA - Admin Page</title>
+    <title>CRM - Customer Relationship Management</title>
 
 
     <!-- uikit -->
@@ -34,59 +33,75 @@
     <script src="<?php echo base_url();?>asset_admin/my_function.js"></script>
 
 
-</head>
 <style>
-#header_main {
-     background: #ececec !important; 
-    /* box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23); */
-    box-shadow:0px !important;
+#sidebar_main {
+    background: #444;
 }
-.gbr_profil{
-	border-radius:100%;
-	height:70px;
-	width:70px;
+.menu_title {
+    color: #fff;
+}
+.menu_section ul li a{
+    font: 500 14px/25px Roboto,sans-serif;
+    color: #ffffff;
+}
+ul li a {
+	color:#FFF !important;
+}
+.material-icons {
+    color: #ffffff;
+}
+
+#sidebar_main .menu_section>ul>li.submenu_trigger>a:before {
+    color: #ffffff !important;
+}
+.uk-dropdown>ul>li>a {
+    font-size: 14px;
+    color: #212121 !important;
 }
 </style>
 
-<body class=" sidebar_main_open sidebar_main_swipe ">
+</head>
+
+
+
+
+<body class=" sidebar_main_open sidebar_main_swipe">
     <!-- main header -->
     <header id="header_main">
-            <nav class="uk-navbar ">   
+        <div class="header_main_content">
+            <nav class="uk-navbar">
+                                
                 <!-- main sidebar switch -->
-                <a href="#" id="sidebar_main_toggle" class="sSwitch sSwitch_left ">
+                <a href="#" id="sidebar_main_toggle" class="sSwitch sSwitch_left">
                     <span class="sSwitchIcon"></span>
                 </a>
+                
+               
+                <div class="uk-navbar-flip">
+                    <ul class="uk-navbar-nav user_actions">
+                        
+                        <li data-uk-dropdown="{mode:'click',pos:'bottom-right'}">
+                            <a href="#" class="user_action_image"><img class="md-user-image" src="<?php echo base_url();?>assets/images/guru.png" alt=""/></a>
+                            <div class="uk-dropdown uk-dropdown-small">
+                                <ul class="uk-nav js-uk-prevent">
+                                    <li><a href="page_settings.html">Settings</a></li>
+                                  <li><a href="<?php echo base_url();?>Admin/logout">Logout</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
-    </header>
+    </header><!-- main header end -->
     <!-- main sidebar -->
     <aside id="sidebar_main">
         
-        <div class="sidebar_main_header">
-  <img class="logo_regular gbr_profil" src="<?php echo base_url();?>assets/images/<?php echo $this->session->userdata('gambar_sess');?>" alt="" height="90" width="90"/>
-
-          
-                
-                
-            <!--    SETTINGS-->
-                
-           
-<div class="uk-button-dropdown" data-uk-dropdown="" aria-haspopup="true" aria-expanded="false">
- <p>admin</p> 
-                                Profile <i class="material-icons"></i>
-                                <div class="uk-dropdown uk-dropdown-small uk-dropdown-bottom" aria-hidden="true" tabindex="" style="min-width: 160px; top: 34px; left: 0px;">
-                                    <ul class="uk-nav uk-nav-dropdown">
-                                        <li><a href="<?php echo base_url();?>Admin/logout"><i class="material-icons">settings</i> Setting Profile</a></li>
-                                        <li><a href="<?php echo base_url();?>Admin/logout"><i class="material-icons">close</i> Logout</a></li>
-                                    </ul>
-                                </div>
-          </div>
-                        
-               <!-- SETTING-->
-                
-            
-      </div>
+        
         
         <div class="menu_section">
+        
+       <h2 style="color:#FFF">&nbsp; Admin Page</h2>
             <ul>
                 <li class="current_section" title="Dashboard">
                     <a href="<?php echo base_url();?>Admin/home">
@@ -137,8 +152,11 @@
                         <span class="menu_icon"><i class="material-icons">language</i></span>
                         <span class="menu_title">posting News</span>
                 </a></li>  
-           
-               
+ <li title="Scrum Board">
+                 <a href="<?php echo base_url();?>Admin/list_buku_tamu">
+                        <span class="menu_icon"><i class="material-icons">language</i></span>
+                        <span class="menu_title">Buku Tamu</span>
+                </a></li>                
           </ul>
       </div>
 </aside><!-- main sidebar end -->

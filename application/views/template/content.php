@@ -5,8 +5,8 @@
                     <div class="col-md-3">
                       <div class="tt-sidebar-wrapper" role="complementary">
                           <div class="widget widget_search">
-                            <form role="search" method="get" class="search-form" >
-                              <input type="text" class="form-control" value="" name="s" id="s" placeholder="Pencarian">
+                            <form role="search" class="search-form" method="post" action="<?php echo base_url()?>Home/pencarian" >
+                              <input type="text" class="form-control" value="" name="txtcari" id="txtcari" placeholder="Pencarian">
                               <button type="submit"><i class="fa fa-search"></i></button>
                             </form>
                           </div><!-- /.widget_search -->

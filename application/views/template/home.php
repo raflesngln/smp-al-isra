@@ -101,7 +101,7 @@
                             </li>
                  
                  
-                          <li><a href="javascript:void(0)">Profil</a>
+                          <li><a href="javascript:void(0)">Profil Sekolah</a>
                                 <ul class="dropdown">
                     <?php echo $this->dynamic_menu->sub_menu_profil(); ?>
                                 </ul>
@@ -114,10 +114,10 @@
                             <a href="<?php echo base_url();?>Home/gallery">Gallery</a>
                             </li>
                             <li>
-                            <a href="<?php echo base_url();?>Home/news">Berita</a>
+                            <a href="<?php echo base_url();?>Home/news">Berita Pendidikan</a>
                             </li>
                             <li>
-                            <a href="<?php echo base_url();?>Home/pengajar">Staff Guru</a>
+                            <a href="<?php echo base_url();?>Home/pengajar">Staff & Guru</a>
                             </li>
                             <li>
                             <a href="<?php echo base_url();?>Home/input_buku_tamu">Buku Tamu </a>

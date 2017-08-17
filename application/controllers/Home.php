@@ -76,6 +76,18 @@ function input_buku_tamu(){
 	   );
        $this->load->view('template/home',$data);
     } 
+function pencarian(){
+		$txtcari=$this->input->post('txtcari');
+		
+	   $data=array(
+	   'content'=>'content/pencarian',
+	   'navigasi'=>'pencarian',
+	   'news'=>$this->Model_app->getdata("*","berita","where judul_berita like '%$txtcari%'"),
+	   'notif'=>$this->session->flashdata('notif')
+	   );
+       $this->load->view('template/home',$data);
+    } 
+	
 function simpan_buku_tamu(){
 		
 		$data = array(

@@ -9,8 +9,11 @@
       <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
      <link rel="shortcut icon" href="<?php echo base_url();?>assets/images/favicon.ico">
 
+<link rel="stylesheet" href="<?php echo base_url();?>asset_admin/sweetalert/dist/sweetalert.css" media="all">
+ <script src="<?php echo base_url();?>asset_admin/sweetalert/dist/sweetalert.min.js"></script>
+ 
 
-    <title>CRM - Customer Relationship Management</title>
+    <title>SMP-AL-ISRA</title>
 
 
     <!-- uikit -->

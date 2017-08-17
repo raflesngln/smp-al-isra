@@ -151,6 +151,7 @@ function new_data(){
 	
 }
 function edit_data(mydata){
+	swal_process();
 	action_method == 'edit'
 	var pathPhoto="<?php echo base_url();?>assets/images/news/";
 	$('.btn-save').html('<i class="material-icons md-color-grey-50">refresh</i> Update');
@@ -183,6 +184,7 @@ function edit_data(mydata){
 	
 }
 function update_berita(){
+	swal_process();
    		var formData = new FormData($("#form_inputan")[0]);
           swal_process();
           url = '<?php echo base_url();?>admin/update_berita';
@@ -197,6 +199,7 @@ function update_berita(){
       		contentType: false,
             success: function(data)
             {
+				swal.close();
 			   	var modal = UIkit.modal("#modal_inputan");
    	   			modal.hide();
 				$('#form_inputan')[0].reset();
@@ -240,6 +243,7 @@ function save_berita(){
         });
     }
 function hapus_data(mydata){
+	swal_process();
 	var id=mydata;
 	var conf = confirm("Sure to delete data ?");
 	if (conf) {
@@ -250,6 +254,7 @@ function hapus_data(mydata){
 		    data: "id="+id,
            dataType: "json",
            success: function(data){
+			   swal.close();
 			    UIkit.modal.alert('<i class="fa fa-check"></i>  Data deleted !');
 				var modal = UIkit.modal("#modal_inputan");
    	   			modal.hide();

@@ -145,7 +145,7 @@ function reload_tabel()
 <div class="md-card-content">
  <div class="uk-grid" data-uk-grid-margin>
           <div class="uk-width-medium-1-1">
-                            <label>Full Name</label>
+                            <label>Id</label>
                             <input name="id_admin" type="text" class="md-input label-fixed" id="id_admin" required="required" />
           </div>
                         
@@ -154,7 +154,7 @@ function reload_tabel()
  </div>
  <div class="uk-grid" data-uk-grid-margin>
           <div class="uk-width-medium-1-1">
-            <label>Email</label>
+            <label>Nama</label>
                             <textarea name="nm_admin" class="md-input label-fixed" id="nm_admin"></textarea>
           </div>
                         
@@ -162,7 +162,7 @@ function reload_tabel()
  </div>
 <div class="uk-grid" data-uk-grid-margin>
           <div class="uk-width-medium-1-1">
-                            <label>Email</label>
+                            <label>Username</label>
                             <textarea name="username" class="md-input label-fixed" id="username"></textarea>
                         </div>
                         

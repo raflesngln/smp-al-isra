@@ -178,6 +178,7 @@ function edit_data(mydata){
 	
 }
 function update_profil(){
+	swal_process();
    		var formData = new FormData($("#form_inputan")[0]);
           swal_process();
           url = '<?php echo base_url();?>admin/update_profil';
@@ -192,6 +193,7 @@ function update_profil(){
       		contentType: false,
             success: function(data)
             {
+				swal.close();
 			   	var modal = UIkit.modal("#modal_inputan");
    	   			modal.hide();
 				$('#form_inputan')[0].reset();
@@ -235,6 +237,7 @@ function save_profil(){
         });
     }
 function hapus_data(mydata){
+	swal_process();
 	var id=mydata;
 	var conf = confirm("Sure to delete data ?");
 	if (conf) {
@@ -245,6 +248,7 @@ function hapus_data(mydata){
 		    data: "id="+id,
            dataType: "json",
            success: function(data){
+			   swal.close();
 			    UIkit.modal.alert('<i class="fa fa-check"></i>  Data deleted !');
 				var modal = UIkit.modal("#modal_inputan");
    	   			modal.hide();

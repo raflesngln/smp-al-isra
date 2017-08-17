@@ -1,8 +1,8 @@
 <style>
 .img{
-	height:150px !important;
-	max-height:150px;
-	min-height:150px;
+	height:220px !important;
+	max-height:220px;
+	min-height:220px;
 	width:99%
 }
 </style>
@@ -139,6 +139,7 @@
 var action_method; 
 
 function new_data(){
+
 		action_method == 'new'
 	$('#form_inputan')[0].reset();
 	$('.btn-save').html('<i class="material-icons md-color-grey-50">save</i> Save');
@@ -183,6 +184,7 @@ function edit_data(mydata){
 	
 }
 function update_gallery(){
+	swal_process();
    		var formData = new FormData($("#form_inputan")[0]);
           swal_process();
           url = '<?php echo base_url();?>admin/update_gallery';
@@ -197,6 +199,7 @@ function update_gallery(){
       		contentType: false,
             success: function(data)
             {
+				swal.close();
 			   	var modal = UIkit.modal("#modal_inputan");
    	   			modal.hide();
 				$('#form_inputan')[0].reset();
@@ -240,6 +243,7 @@ function save_gallery(){
         });
     }
 function hapus_data(mydata){
+	swal_process();
 	var id=mydata;
 	var conf = confirm("Sure to delete data ?");
 	if (conf) {
@@ -250,6 +254,7 @@ function hapus_data(mydata){
 		    data: "id="+id,
            dataType: "json",
            success: function(data){
+			   swal.close();
 			    UIkit.modal.alert('<i class="fa fa-check"></i>  Data deleted !');
 				var modal = UIkit.modal("#modal_inputan");
    	   			modal.hide();
@@ -278,6 +283,7 @@ function cari(){
 
 }
 function load_jabatan(myid){
+	swal_process();
 	var id='open';
 	var myid=myid;
 		var input = myid.split('-');
@@ -290,6 +296,7 @@ function load_jabatan(myid){
 		    data: "id="+id,
            dataType: "json",
            success: function(data){
+			   swal.close();
                     $("#nm_jabatan").empty();
                    $("#nm_jabatan").append("<option value='"+id_jabat+"'>"+nm_jabat+"</option>");
                      for (var i =0; i<data.length; i++){

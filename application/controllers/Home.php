@@ -71,7 +71,7 @@ function input_buku_tamu(){
 		
 	   $data=array(
 	   'content'=>'content/input_buku_tamu',
-	   'navigasi'=>'Pengajar',
+	   'navigasi'=>'input_buku_tamu',
 	   'notif'=>$this->session->flashdata('notif')
 	   );
        $this->load->view('template/home',$data);

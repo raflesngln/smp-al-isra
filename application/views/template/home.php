@@ -114,7 +114,7 @@
                             <a href="<?php echo base_url();?>Home/gallery">Gallery</a>
                             </li>
                             <li>
-                            <a href="<?php echo base_url();?>Home/news">Berita Pendidikan</a>
+                            <a href="<?php echo base_url();?>Home/news">Berita</a>
                             </li>
                             <li>
                             <a href="<?php echo base_url();?>Home/pengajar">Staff & Guru</a>

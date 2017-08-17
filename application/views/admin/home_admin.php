@@ -137,11 +137,7 @@ ul li a {
                         <span class="menu_icon"><i class="material-icons">&#xE85C;</i></span>
                         <span class="menu_title">Profil_sekolah</span>
                 </a></li>
-               <li title="Scrum Board">
-                    <a href="<?php echo base_url();?>Admin/list_slide">
-                        <span class="menu_icon"><i class="material-icons">touch_app</i></span>
-                        <span class="menu_title">Slider</span>
-                </a></li>  
+               
                <li title="Scrum Board">
                  <a href="<?php echo base_url();?>Admin/list_gallery">
                         <span class="menu_icon"><i class="material-icons">perm_media</i></span>

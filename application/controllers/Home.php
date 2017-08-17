@@ -10,7 +10,6 @@ class Home extends CI_Controller{
 function index(){
 	   $data=array(
 		   'content'=>'content/dashboard',
-		   'list'=>$this->Model_app->getdata("*","slide",""),
 		   'news'=>$this->Model_app->getdata("*","berita","ORDER BY id_berita DESC LIMIT 4"),
 		   'gallery'=>$this->Model_app->getdata("*","gallery","ORDER BY tgl_upload DESC LIMIT 6"),
 		   'buku_tamu'=>$this->Model_app->getdata("*","buku_tamu","WHERE status='1' ORDER BY tgl_kirim DESC LIMIT 8"),

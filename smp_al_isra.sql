@@ -66,11 +66,11 @@ CREATE TABLE `buku_tamu` (
   `isi_buku_tamu` text,
   `status` enum('0','1') DEFAULT '0',
   PRIMARY KEY (`id_buku_tamu`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 /*Data for the table `buku_tamu` */
 
-insert  into `buku_tamu`(`id_buku_tamu`,`subjek`,`tgl_kirim`,`email_pengirim`,`nm_pengirim`,`isi_buku_tamu`,`status`) values (1,'tata cara','2017-08-16 23:13:06','raflesia@yahoo.com','raflasisan','mau tanya ewwwwwwwwwwwwwwwwwwwwwwwww','1'),(3,'fsffsfsf','2017-08-17 00:00:20','raflesia@yahoo.com','5ygtrefedf','frrwgwrg jgvnrejengrjfrrwgwrg jgvnrejengrjfrrwgwrg jgvnrejengrjfrrwgwrg jgvnrejengrjfrrwgwrg jgvnrejengrjfrrwgwrg jgvnrejengrj\r\nrgverfgrefrrwgwrg jgvnrejengrj','1');
+insert  into `buku_tamu`(`id_buku_tamu`,`subjek`,`tgl_kirim`,`email_pengirim`,`nm_pengirim`,`isi_buku_tamu`,`status`) values (1,'tata cara','2017-08-16 23:13:06','raflesia@yahoo.com','raflasisan','mau tanya ewwwwwwwwwwwwwwwwwwwwwwwww','1'),(3,'fsffsfsf','2017-08-17 00:00:20','raflesia@yahoo.com','5ygtrefedf','frrwgwrg jgvnrejengrjfrrwgwrg jgvnrejengrjfrrwgwrg jgvnrejengrjfrrwgwrg jgvnrejengrjfrrwgwrg jgvnrejengrjfrrwgwrg jgvnrejengrj\r\nrgverfgrefrrwgwrg jgvnrejengrj','1'),(4,'uyjnuyjnyu','2017-08-17 05:16:59','mujmnuimnuyjm@dfgvdf.fgvdfg','ikmmumukj','hyujnhuy jniusvhdfv vjihndndfijv dfvndnfvjhd','0'),(5,'btbthbtb','2017-08-17 05:20:06','mujmnuimnuyjm@dfgvdf.fgvdfg','gbgbtgb','tgbthgbvtghbthgbvg','0');
 
 /*Table structure for table `calon_siswa` */
 
@@ -83,11 +83,11 @@ CREATE TABLE `calon_siswa` (
   `email` varchar(50) DEFAULT NULL,
   `password` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_calon`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 /*Data for the table `calon_siswa` */
 
-insert  into `calon_siswa`(`id_calon`,`tgl_daftar`,`nm_calon`,`email`,`password`) values (5,'2017-07-30 08:16:13','rafles','rafles@gmail.com','827ccb0eea8a706c4c34a16891f84e7b'),(6,'2017-07-30 08:16:39','alana Rohimaad ajah','alan@gmail.com','827ccb0eea8a706c4c34a16891f84e7b'),(7,'2017-08-08 12:58:14','ririn ajahssssssssss','ririnajah@gmail.comd','827ccb0eea8a706c4c34a16891f84e7b'),(8,'2017-08-06 06:45:39','budi','budi@gmail.com','827ccb0eea8a706c4c34a16891f84e7b'),(9,'2017-08-12 09:50:20','ijat','ijat@gmail.com','827ccb0eea8a706c4c34a16891f84e7b'),(10,'2017-08-16 18:56:38','rafles Nainggolan','raflesngln@gmail.com','827ccb0eea8a706c4c34a16891f84e7b');
+insert  into `calon_siswa`(`id_calon`,`tgl_daftar`,`nm_calon`,`email`,`password`) values (5,'2017-07-30 08:16:13','rafles','rafles@gmail.com','827ccb0eea8a706c4c34a16891f84e7b'),(6,'2017-07-30 08:16:39','alana Rohimaad ajah','alan@gmail.com','827ccb0eea8a706c4c34a16891f84e7b'),(7,'2017-08-08 12:58:14','ririn ajahssssssssss','ririnajah@gmail.comd','827ccb0eea8a706c4c34a16891f84e7b'),(8,'2017-08-06 06:45:39','budi','budi@gmail.com','827ccb0eea8a706c4c34a16891f84e7b'),(9,'2017-08-12 09:50:20','ijat','ijat@gmail.com','827ccb0eea8a706c4c34a16891f84e7b'),(10,'2017-08-16 18:56:38','rafles Nainggolan','raflesngln@gmail.com','827ccb0eea8a706c4c34a16891f84e7b'),(11,'2017-08-17 05:23:38','dsdsdsd','aaaa@gmail.com','827ccb0eea8a706c4c34a16891f84e7b');
 
 /*Table structure for table `detail_kelas` */
 
@@ -215,7 +215,7 @@ CREATE TABLE `pendaftaran` (
 
 /*Data for the table `pendaftaran` */
 
-insert  into `pendaftaran`(`nomor_daftar`,`id_calon`,`tgl_daftar`,`nama_lengkap`,`jenis_kelamin`,`berat`,`tinggi`,`golongan_darah`,`nik`,`agama`,`tempat_lahir`,`tgl_lahir`,`anak_ke`,`jumlah_bersaudara`,`tempat_tinggal`,`asal_sekolah`,`nama_ayah`,`nama_ibu`,`tgl_lahir_ayah`,`tgl_lahir_ibu`,`pendidikan_ayah`,`pendidikan_ibu`,`pekerjaan_ayah`,`pekerjaan_ibu`,`penghasilan_ayah`,`penghasilan_ibu`,`alamat_ayah`,`alamat_ibu`,`pass_photo`,`ijasah`,`kk`,`traskrip_nilai`,`status_proses`,`status_pembayaran`) values ('PSB20170800001','6','2017-08-08 00:00:00','Alan Rochim','pria',55,166,'A','12134555','islam','serang','2000-01-01',2,5,'jakarta barat cengkareng','SDN 1 JAKARTA BARAT','anto','surti',1945,1954,'SMA','SMP','PNS','BURUH',4000000,3000000,'serang','medan','cs-pitchbasicstats-7-638.jpg','news.jpg','profil.jpg','staff guru.jpg','diterima','lunas'),('PSB20170800002','9','2017-08-12 00:00:00','ijat','pria',77,177,'a','215265162','islam','jakarta barat','2002-03-03',2,3,'cengkareng','sdn 11','anto','mawar',1946,1948,'SMA','SMP','karyawan','buruh',4000000,3500000,'cengkareng','grogol','download.png','harga.png','build.png','logo.png','diterima','lunas');
+insert  into `pendaftaran`(`nomor_daftar`,`id_calon`,`tgl_daftar`,`nama_lengkap`,`jenis_kelamin`,`berat`,`tinggi`,`golongan_darah`,`nik`,`agama`,`tempat_lahir`,`tgl_lahir`,`anak_ke`,`jumlah_bersaudara`,`tempat_tinggal`,`asal_sekolah`,`nama_ayah`,`nama_ibu`,`tgl_lahir_ayah`,`tgl_lahir_ibu`,`pendidikan_ayah`,`pendidikan_ibu`,`pekerjaan_ayah`,`pekerjaan_ibu`,`penghasilan_ayah`,`penghasilan_ibu`,`alamat_ayah`,`alamat_ibu`,`pass_photo`,`ijasah`,`kk`,`traskrip_nilai`,`status_proses`,`status_pembayaran`) values ('PSB20170800001','6','2017-08-08 00:00:00','Alan Rochim','pria',55,166,'A','12134555','islam','serang','2000-01-01',2,5,'jakarta barat cengkareng','SDN 1 JAKARTA BARAT','anto','surti',1945,1954,'SMA','SMP','PNS','BURUH',4000000,3000000,'serang','medan','cs-pitchbasicstats-7-638.jpg','news.jpg','profil.jpg','staff guru.jpg','diterima','lunas'),('PSB20170800003','8','2017-08-17 00:00:00','budi hartono saja ya','pria',32,188,'200','4545454','islam','jkata cbdscbdgcb','2007-04-05',3,4,'fvfv fvgfvf','kbgvgfvgfvf','dcecfed','hbhgbhg',1959,1945,'vrgvtrbvgr','olkololpo','xxdsxdsx','ikiollol',343567,988989,'dcdecfergrgtr','kiokuijuyjuyhtyhge','cappucino.jpg','','','','proses','belum_lunas');
 
 /*Table structure for table `profil` */
 

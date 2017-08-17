@@ -108,12 +108,12 @@ ul li a {
             <ul>
                 <li class="current_section" title="Dashboard">
                     <a href="<?php echo base_url();?>Admin/home">
-                        <span class="menu_icon"><i class="material-icons">&#xE871;</i></span>
+                        <span class="menu_icon"><i class="material-icons">dashboard</i></span>
                         <span class="menu_title">Dashboard</span>
                 </a></li>
                 <li title="Chats">
                     <a href="#">
-                        <span class="menu_icon"><i class="material-icons">&#xE0B9;</i></span>
+                        <span class="menu_icon"><i class="material-icons">library_books</i></span>
                         <span class="menu_title">Master</span>
                     </a>
                     <ul>
@@ -126,7 +126,7 @@ ul li a {
                 </li>
                  <li title="Chats">
                     <a href="#">
-                        <span class="menu_icon"><i class="material-icons">assignment</i></span>
+                        <span class="menu_icon"><i class="material-icons">contact_mail</i></span>
                         <span class="menu_title">PSB</span>
                     </a>
                     <ul>
@@ -137,23 +137,23 @@ ul li a {
                 </li>
                          <li title="Scrum Board">
                     <a href="<?php echo base_url();?>Admin/list_profil">
-                        <span class="menu_icon"><i class="material-icons">&#xE85C;</i></span>
+                        <span class="menu_icon"><i class="material-icons">local_library</i></span>
                         <span class="menu_title">Profil_sekolah</span>
                 </a></li>
                
                <li title="Scrum Board">
                  <a href="<?php echo base_url();?>Admin/list_gallery">
-                        <span class="menu_icon"><i class="material-icons">perm_media</i></span>
+                        <span class="menu_icon"><i class="material-icons">insert_photo</i></span>
                         <span class="menu_title">gallery</span>
                 </a></li>  
                <li title="Scrum Board">
                  <a href="<?php echo base_url();?>Admin/list_berita">
-                        <span class="menu_icon"><i class="material-icons">language</i></span>
-                        <span class="menu_title">posting News</span>
+                        <span class="menu_icon"><i class="material-icons">vpn_lock</i></span>
+                        <span class="menu_title">Berita</span>
                 </a></li>  
  <li title="Scrum Board">
                  <a href="<?php echo base_url();?>Admin/list_buku_tamu">
-                        <span class="menu_icon"><i class="material-icons">language</i></span>
+                        <span class="menu_icon"><i class="material-icons">message</i></span>
                         <span class="menu_title">Buku Tamu</span>
                 </a></li>                
           </ul>

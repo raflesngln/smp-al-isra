@@ -17,7 +17,7 @@
      <div class="tab-content">
      
       <div role="tabpanel" class="tab-pane fade in active" id="tab-1">
-       <?php echo $this->load->view('calon/form_pendaftaran');?>
+       <?php echo $this->load->view('calon/v_my_profile');?>
 	  </div>
                           
          <div role="tabpanel" class="tab-pane fade" id="tab-2">

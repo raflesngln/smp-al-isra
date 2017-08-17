@@ -122,9 +122,8 @@ public function submit_pendaftaran(){
 	
 	if($cek_daftar){
 		//$this->update_form_daftar();
-		echo 'sudah ada';
+		$this->update_form_daftar();
 	} else{
-		echo 'belum ada';
 		$this->simpan_form_daftar();
 	}
 }
@@ -202,20 +201,14 @@ function simpan_form_daftar(){
        $this->load->view('template/home',$pesan);
 	
 }
-function update_form_daftarrrrrrr(){
-		$nomor_daftar=$this->Model_app->generateNo("pendaftaran","nomor_daftar","PSB");
-		$path='./assets/images/calon/'.$nomor_daftar;
-				if (!is_dir($path)) {
-					$oldmask = umask(0);
-					mkdir($path, 0777);
-					umask($oldmask);
-				}
 
-}
  function update_form_daftar(){
-		$nomor_daftar=$this->Model_app->generateNo("pendaftaran","nomor_daftar","PSB");
+	   $id_calon=$this->session->userdata('id_calon_sesi');
+	   $cari=$this->Model_app->getdata("*","pendaftaran","where id_calon='$id_calon'");
+	   foreach($cari as $row){
+		   $nomor_daftar=$row->nomor_daftar;   
+	   }
 		
-		$nomor=$this->input->post('nip');
 		$path='./assets/images/calon/'.$nomor_daftar.'/';
 				if (!is_dir($path)) {  //jika folder belum ada maka buatkan baru
 					$oldmask = umask(0);
@@ -235,49 +228,52 @@ function update_form_daftarrrrrrr(){
 		$tmp_nilai  = isset($_FILES['nilai']['tmp_name'])?$_FILES['nilai']['tmp_name']:false;
 		$gbr_nilai=isset($_FILES['nilai']['name'])?$_FILES['nilai']['name']:false;
 
-		$data = array(
-			'nomor_daftar'=>$this->input->post('nip'),
-			'id_calon'=>$this->input->post('nm_guru'),
-			'tgl_daftar'=>$this->input->post('nm_guru'),
-			'nama_lengkap'=>$this->input->post('nama_lengkap'),
-			'jenis_kelamin'=>$this->input->post('almt_guru'),
-			'berat'=>$this->input->post('telpon'),
-			'tinggi'=>$this->input->post('nip'),
-			'golongan_darah'=>$this->input->post('nm_guru'),
-			'nik'=>$this->input->post('nm_guru'),
-			'agama'=>$this->input->post('nm_jabatan'),
-			'tempat_lahir'=>$this->input->post('almt_guru'),
-			'tgl_lahir'=>$this->input->post('telpon'),
-			'anak_ke'=>$this->input->post('nip'),
-			'jumlah_bersaudara'=>$this->input->post('nm_guru'),
-			'tempat_tinggal'=>$this->input->post('nm_jabatan'),
-			'asal_sekolah'=>$this->input->post('almt_guru'),
-			'nama_ayah'=>$this->input->post('telpon'),
-			'nama_ibu'=>$this->input->post('nip'),
-			'tgl_lahir_ayah'=>$this->input->post('nm_guru'),
-			'tgl_lahir_ibu'=>$this->input->post('nm_jabatan'),
-			'pendidikan_ayah'=>$this->input->post('almt_guru'),
-			'pendidikan_ibu'=>$this->input->post('telpon'),
-			'pekerjaan_ayah'=>$this->input->post('telpon'),
-			'pekerjaan_ibu'=>$this->input->post('nip'),
-			'penghasilan_ayah'=>$this->input->post('nm_guru'),
-			'penghasilan_ibu'=>$this->input->post('nm_jabatan'),
-			'alamat_ayah'=>$this->input->post('almt_guru'),
-			'alamat_ibu'=>$this->input->post('telpon'),
-			'pass_photo'=>$this->input->post('nip'),
-			'ijasah'=>$this->input->post('nm_guru'),
-			'kk'=>$this->input->post('nm_jabatan'),
-			'traskrip_nilai'=>$this->input->post('almt_guru'),
-			'gambar'=>$gbr,
+		$data_ubah = array(
+			'tgl_daftar'=>date('Y-m-d'),
+			'nama_lengkap'=>$this->input->post('nm_lengkap'),
+			'jenis_kelamin'=>$this->input->post('jenis_kelamin'),
+			'berat'=>$this->input->post('berat'),
+			'tinggi'=>$this->input->post('tinggi'),
+			'golongan_darah'=>$this->input->post('golongan_darah'),
+			'nik'=>$this->input->post('nik'),
+			'agama'=>$this->input->post('agama'),
+			'tempat_lahir'=>$this->input->post('tempat_lahir'),
+			'tgl_lahir'=>$this->input->post('thn_calon').'-'.$this->input->post('bln_calon').'-'.$this->input->post('tgl_calon'),
+			'anak_ke'=>$this->input->post('anak_ke'),
+			'jumlah_bersaudara'=>$this->input->post('jumlah_bersaudara'),
+			'tempat_tinggal'=>$this->input->post('tempat_tinggal'),
+			'asal_sekolah'=>$this->input->post('asal_sekolah'),
+			'nama_ayah'=>$this->input->post('nama_ayah'),
+			'nama_ibu'=>$this->input->post('nama_ibu'),
+			'tgl_lahir_ayah'=>$this->input->post('tgl_lahir_ayah'),
+			'tgl_lahir_ibu'=>$this->input->post('tgl_lahir_ibu'),
+			'pendidikan_ayah'=>$this->input->post('pendidikan_ayah'),
+			'pendidikan_ibu'=>$this->input->post('pendidikan_ibu'),
+			'pekerjaan_ayah'=>$this->input->post('pekerjaan_ayah'),
+			'pekerjaan_ibu'=>$this->input->post('pekerjaan_ibu'),
+			'penghasilan_ayah'=>$this->input->post('penghasilan_ayah'),
+			'penghasilan_ibu'=>$this->input->post('penghasilan_ibu'),
+			'alamat_ayah'=>$this->input->post('alamat_ayah'),
+			'alamat_ibu'=>$this->input->post('alamat_ibu'),
+			'pass_photo'=>($gbr_pass !='')?$gbr_pass:$row->pass_photo,
+			'ijasah'=>($gbr_ijasah !='')?$gbr_ijasah:$row->ijasah,
+			'kk'=>($gbr_kk !='')?$gbr_kk:$row->kk,
+			'traskrip_nilai'=>($gbr_nilai !='')?$gbr_nilai:$row->traskrip_nilai,
+			'status_proses'=>'proses',
 			);
-		$insert = $this->Model_admin->save('pendaftaran',$data);
+			
+			$this->Model_admin->update('pendaftaran','nomor_daftar',$nomor_daftar,$data_ubah);
+			
 		move_uploaded_file($tmp_pass,$path.$gbr_pass);
 		move_uploaded_file($tmp_ijasah,$path.$gbr_ijasah);
 		move_uploaded_file($tmp_kk,$path.$gbr_kk);
 		move_uploaded_file($tmp_nilai,$path.$gbr_nilai);	
-		echo 'Data tersimpan dengan nomor daftar '.$nomor_daftar;
-
-
+			$pesan=array(
+	   'content'=>'calon/notifikasi',
+	   'navigasi'=>'notifikasi',
+	   'message'=>'Data berhasil update '.$nomor_daftar
+	   );
+       $this->load->view('template/home',$pesan);
 	
 }
   function hapus_folder($dir) {

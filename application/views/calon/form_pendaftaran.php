@@ -39,12 +39,9 @@ select {
            
 
       <div class="row">
-      
- <form class="col s12" method="post" action="<?php echo base_url();?>Psb/submit_pendaftaran" id="form-box"  enctype="multipart/form-data">
- <?php
- if($detail_isi !==''){
+  <?php
+ if($detail_isi !=''){
 	 foreach($detail_isi as $row){
-		 
 		 $nomor=$row->nomor_daftar;
 		 $id_calon=$row->id_calon;
 		 $nama_lengkap=$row->nama_lengkap;
@@ -77,12 +74,15 @@ select {
 		 $ijasah=$row->ijasah;
 		 $kk=$row->kk;
 		 $traskrip_nilai=$row->traskrip_nilai;
-		 
 		 $status_proses=$row->status_proses;
-
+		 
+		
+		 
 	 }
  }
- ?>
+ ?>     
+ <form class="col s12" method="post" action="<?php echo base_url();?>Psb/submit_pendaftaran" id="form-box"  enctype="multipart/form-data">
+
   
     
  <?php 
@@ -90,6 +90,7 @@ select {
  {
 ?>   
 <div class="row">
+
 <a href="<?php echo base_url();?>Psb/cetak_pendaftaran/<?php echo isset($nomor)?$nomor:'';?>"  style="float:right" type="button" class="waves-effect waves-light btn orange" target="new"> <i class="fa fa-print fa-2x"></i> Print</a>
 </div>
 

@@ -29,10 +29,18 @@ h1{
  
  			<h1 align="center">Buku Tamu</h1>
   
- <p>
- 
- <?php echo isset($notif)?'<h6 class="badge" align="center"><i class="fa fa-info"></i> '.$notif.'</h6>':'';?></p>      
-      
+
+<?php 
+if(isset($notif)){
+	echo '
+<div class="alert warning-dark" role="alert">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                      <i class="fa fa-info"></i>'.$notif.'
+                  </div>
+	';
+}
+	?>
+          
       <div class="row">
         <div class="col s8">
         <label for="email_pengirim">Nama Lengkap</label>

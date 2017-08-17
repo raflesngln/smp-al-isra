@@ -26,13 +26,20 @@ h1{
       <!--   Icon Section   -->
       <div class="row">
       
- <form class="col s6" method="post" action="<?php echo base_url();?>Psb/simpan_daftar" id="form-login">
+ <form class="col s7" method="post" action="<?php echo base_url();?>Psb/simpan_daftar" id="form-login">
  
  			<h1 align="center">DAFTAR USER BARU</h1>
   
- <p>
- 
- <?php echo isset($notif)?'<h6 class="badge" align="center"><i class="fa fa-info"></i> '.$notif.'</h6>':'';?></p>      
+<?php 
+if(isset($notif)){
+	echo '
+<div class="alert warning-dark" role="alert">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                      <i class="fa fa-info"></i>'.$notif.'
+                  </div>
+	';
+}
+	?>     
       
       <div class="row">
         <div class="col s12">
@@ -65,3 +72,4 @@ h1{
 
     
   </div>   
+  <br />

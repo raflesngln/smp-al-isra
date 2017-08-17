@@ -59,12 +59,13 @@
 .tt-nav.sticky .logo-brand img, .tt-nav.sticky .logo-brand img.retina {
    
 	    height: 70px !important;
-    width: 350px !important;
+    width: 250px !important;
 }
 .tt-nav .logo-brand img {
    
 	    height: 70px !important;
-    width: 350px !important;
+    width: 250px !important;
+	margin-bottom: 10px;
 }
 .page-title {
     margin-bottom: 15px;
@@ -197,7 +198,7 @@
 
 
         <!-- blog section start -->
-        <?php echo $this->load->view('content/testimoni');?>
+        <?php echo isset($buku_tamu)?$this->load->view('content/testimoni'):'';?>
         <!-- blog section end -->
         
         <footer class="footer footer-four">

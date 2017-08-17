@@ -342,7 +342,7 @@ function cek_login_user() {
 								}
 							} else {
 								//if form validate false
-							$this->session->set_flashdata('notif','Email dan Password tidak cocok');		
+							$this->session->set_flashdata('notif','Email dan Password tidak cocok atau anda belum terdaftar');		
 							redirect('Psb/login');
 						 } 
 	

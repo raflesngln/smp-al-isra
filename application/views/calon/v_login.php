@@ -22,11 +22,11 @@ h1{
  </style> 
 <div class="row" >
                
-<div class="col s3">&nbsp;</div>
+<div class="col s1">&nbsp;</div>
       <!--   Icon Section   -->
       <div class="row">
       
- <form class="col s6" method="post" action="<?php echo base_url();?>Psb/cek_login_user" id="form-login">
+ <form class="col s8" method="post" action="<?php echo base_url();?>Psb/cek_login_user" id="form-login">
  
  			<h1 align="center">LOGIN USER</h1>
   
